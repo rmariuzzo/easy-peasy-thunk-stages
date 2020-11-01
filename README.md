@@ -37,7 +37,7 @@ const userModel {
 }
 ```
 
-Probably, you app need to known when a given thunk is `idle` or `busy`. Also, it would be useful to know when they `completed` or `failed`.
+And your app need to known when any thunk is `idle`, `busy`, `completed` or `failed`.
 
 With **`easy-peasy-thunk-stages`** you can have that information about your thunks' stages by doing 3 simple changes:
 
@@ -94,3 +94,26 @@ const UsersPage = () => {
 Adding `thunkStagesModel()` will augment your model with the following properties: `thunkStages`, `setThunkStage` and `setThunkStageOn`.
 
 As a consumer your app will be interacting with `thunkStages`. While the other two props are used by `thunkStagesModel()` to listen to all thunk and updates their stages.
+
+## Development
+
+1.  Clone this repository.
+2.  Install dependencies: `npm i`.
+3.  Run it locally: `npm start` or `./src/bin.js`
+
+### Tests
+
+```sh
+npm run test
+```
+
+### Releases
+
+Releases are triggered by `npm version` and handled by [GitHub Actions](https://github.com/rmariuzzo/shorted-theme/actions?query=workflow%3Apublish).
+
+<br>
+<br>
+<br>
+<center>
+Made with ♥ by <a href="https://github.com/rmariuzzo" target="_blank">@rmariuzzo</a>
+</center>
