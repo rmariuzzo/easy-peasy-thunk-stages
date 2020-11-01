@@ -1,8 +1,8 @@
 import { createStore, thunk, Thunk, action } from 'easy-peasy'
 
-import { thunkStagesModel, ThunkStagesModel } from '../easy-peasy-thunk-stages'
+import { thunkStagesModel, ThunkStagesModel } from '../thunk-stages-model'
 
-describe('easy-peasy-thunk-stages', () => {
+describe('thunkStagesModel()', () => {
   it('should create store', () => {
     createStore(thunkStagesModel({}))
   })

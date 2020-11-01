@@ -9,7 +9,7 @@ import {
   ThunkOn
 } from 'easy-peasy'
 
-type ThunkStage = 'idle' | 'busy' | 'completed' | 'failed'
+export type ThunkStage = 'idle' | 'busy' | 'completed' | 'failed'
 
 type ThunkNames<M extends Record<string, unknown>> = {
   [K in keyof M]: M[K] extends Thunk<any, any, any, any, any> ? K : never
@@ -67,14 +67,14 @@ export const thunkStagesModel = <M extends Record<string, unknown>>(
             return p
           }, [])
       },
-      async (actions, target) => {
+      async (actions, target, helpers) => {
         const action = Object.values(actions).find(
           (action) => action.type === target.type.split('(')[0]
         )
         if (!action) {
           throw new Error(`Could not find action by type: ${target.type}`)
         }
-        const thunkName = action.type.split('.').pop()!
+
         if (
           !(
             'startType' in action &&
@@ -93,6 +93,10 @@ export const thunkStagesModel = <M extends Record<string, unknown>>(
             : target.type === thunkAction.failType
             ? 'failed'
             : 'idle'
+        const thunkName = thunkAction.type.split('.').pop()
+        if (!thunkName || !(thunkName in helpers.getState().thunkStages)) {
+          throw new Error(`Invalid thunk name: ${thunkName}`)
+        }
         actions.setThunkStage({ thunk: thunkName as any, stage: newStage })
       }
     )
