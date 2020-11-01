@@ -42,7 +42,7 @@ And your app need to known when any thunk is `idle`, `busy`, `completed` or `fai
 With **`easy-peasy-thunk-stages`** you can have that information about your thunks' stages by doing 3 simple changes:
 
 ```ts
-//                           1️⃣Extends the interface.
+//                           1️⃣ Extends the interface.
 //                           👇
 interface UsersModel extends ThunkStagesModel<UsersModel> {
   fetch: Thunk<UsersModel>
@@ -52,9 +52,9 @@ interface UsersModel extends ThunkStagesModel<UsersModel> {
 }
 
 const userModel {
-  ...thunkStagesModel({   // 👈2️⃣ Add the implementation.
+  ...thunkStagesModel({   // 👈 2️⃣ Add the implementation.
     fetch: 'idle',
-    create: 'idle',       // 👈3️⃣ Initialize each thunk with a stage.
+    create: 'idle',       // 👈 3️⃣ Initialize each thunk with a stage.
     update: 'idle',
     remove: 'idle',
   }),
