@@ -1,10 +1,8 @@
-<br>
-<br>
-<br>
 <center>
 <h1><code>easy-peasy-thunk-stages</code></h1>
 <small>Thunk stages in your model is easy-peasy!</small>
 </center>
+<br>
 <br>
 <br>
 <br>
