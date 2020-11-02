@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/rmariuzzo/easy-peasy-thunk-stages#readme",
   "devDependencies": {
-    "@testing-library/react": "^11.1.0",
     "@testing-library/react-hooks": "^3.4.2",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
