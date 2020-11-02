@@ -3,4 +3,4 @@ export {
   ThunkStage,
   ThunkStagesModel
 } from './thunk-stages-model'
-export { useThunkStages } from './use-thunk-stages'
+export { useThunkStage } from './use-thunk-stages'

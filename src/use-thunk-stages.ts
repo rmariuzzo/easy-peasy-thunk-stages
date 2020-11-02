@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react'
 
 import { ThunkStage } from './thunk-stages-model'
 
-export const useThunkStages = <P = void, R = any>(
+export const useThunkStage = <P = void, R = any>(
   thunk: ThunkCreator<P, R>
 ): [(payload: P extends undefined ? void : P) => Promise<R>, ThunkStage] => {
   const [stage, setStage] = useState<ThunkStage>('idle')
@@ -19,7 +19,7 @@ export const useThunkStages = <P = void, R = any>(
         throw error
       }
     },
-    [thunk]
+    [thunk, setStage]
   )
   return [wrapper, stage]
 }
