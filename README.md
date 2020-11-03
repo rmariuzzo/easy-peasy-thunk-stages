@@ -14,7 +14,9 @@ Do you need to **access the stages of your thunks** in easy-peasy? If yes, you a
 **There are 2 ways of using this library:**
 
 1.  [Using **the model** `thunkStagesModel`](#example-using-the-model). If you need to store stages for all thunk in a model.
-2.  [Using **the hook** `useThunkStage`](#example-using-the-hook). If you want to wrap an existing thunk using a hook that will give you the correspondin stage. **Note:** the hook doesn't persist the stage in the store.
+2.  [Using **the hook** `useThunkStage`](#example-using-the-hook). If you want to wrap an existing thunk using a hook that will give you the correspondin stage.
+
+**About the hook:** it doesn't persist the stage of the wrapped thunk in the store. It is just an experiment. This may change or it may live in a separate module.
 
 ## Installation
 
