@@ -11,11 +11,11 @@ import {
 
 export type ThunkStage = 'idle' | 'busy' | 'completed' | 'failed'
 
-type ThunkNames<M extends Record<string, unknown>> = {
+type ThunkNames<M extends unknown> = {
   [K in keyof M]: M[K] extends Thunk<any, any, any, any, any> ? K : never
 }[keyof M]
 
-export interface ThunkStagesModel<M extends Record<string, unknown>> {
+export interface ThunkStagesModel<M extends unknown> {
   thunkStages: Generic<
     Record<ThunkNames<Omit<M, keyof ThunkStagesModel<any>>>, ThunkStage>
   >
@@ -29,7 +29,7 @@ export interface ThunkStagesModel<M extends Record<string, unknown>> {
   setThunkStageOn: ThunkOn<ThunkStagesModel<M>>
 }
 
-export const thunkStagesModel = <M extends Record<string, unknown>>(
+export const thunkStagesModel = <M extends unknown>(
   initialThunkStages: Record<
     ThunkNames<Omit<M, keyof ThunkStagesModel<any>>>,
     ThunkStage
