@@ -26,6 +26,7 @@ export interface ThunkStagesModel<M extends unknown> {
       stage: ThunkStage
     }
   >
+  resetThunkStages: Action<ThunkStagesModel<M>>
   setThunkStageOn: ThunkOn<ThunkStagesModel<M>>
 }
 
@@ -39,6 +40,9 @@ export const thunkStagesModel = <M extends unknown>(
     thunkStages: generic(initialThunkStages),
     setThunkStage: action((state, payload) => {
       state.thunkStages[payload.thunk] = payload.stage
+    }),
+    resetThunkStages: action((state) => {
+      state.thunkStages = initialThunkStages
     }),
     setThunkStageOn: thunkOn(
       (actions) => {
