@@ -1,6 +1,6 @@
 {
   "name": "easy-peasy-thunk-stages",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Thunk stages in your model is easy-peasy!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
