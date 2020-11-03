@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 
-import { useThunkStage } from '../use-thunk-stages'
+import { useThunkStage } from '../use-thunk-stage'
 
 describe('useThunkStages()', () => {
   it('should wrap a thunk', async () => {

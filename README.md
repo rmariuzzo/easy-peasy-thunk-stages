@@ -11,13 +11,18 @@ Do you need to **access the stages of your thunks** in easy-peasy? If yes, you a
 
 **`easy-peasy-thunk-stages`** allows you to augment your states adding the stage of all your thunks.
 
+**There are 2 ways of using this library:**
+
+1.  [Using **the model** `thunkStagesModel`](#example-using-the-model). If you need to store stages for all thunk in a model.
+2.  [Using **the hook** `useThunkStage`](#example-using-the-hook). If you want to wrap an existing thunk using a hook that will give you the correspondin stage. **Note:** the hook doesn't persist the stage in the store.
+
 ## Installation
 
 ```sh
 npm i easy-peasy-thunk-stages
 ```
 
-## Example
+## Example using the model
 
 Given the following `UsersModel` containing 4 thunks.
 
@@ -82,6 +87,33 @@ const UsersPage = () => {
   }
 
   if (thunkStages.fetch === 'failed') {
+    return 'Could not load users...'
+  }
+
+  return <UsersList users={users}>
+}
+```
+
+## Example using the hook
+
+```ts
+import { useThunkStage } from 'easy-peasy-thunk-stages'
+
+const UsersPage = () => {
+  const fetchUsers = useStoreState($ => $.users.fetchUsers)
+  const [fetch, fetchStage] = useThunkStage(fetchUsers)
+
+    useEffect(() => {
+    if (fetchStage === 'idle') {
+      fetch()
+    }
+  }, [])
+
+  if (fetchStage === 'busy') {
+    return 'Loading...'
+  }
+
+  if (fetchStage === 'failed') {
     return 'Could not load users...'
   }
 
